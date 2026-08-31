@@ -2021,7 +2021,10 @@ function closeArrizoGallery(){
   stopArrizoAutoplay();
 }
 
-arrizoCard.addEventListener('click', openArrizoGallery);
+arrizoCard.addEventListener('click', e => {
+  if(e.target.closest('.car-gallery')) return;
+  openArrizoGallery();
+});
 arrizoGalleryOverlay.addEventListener('click', closeArrizoGallery);
 arrizoGalleryClose.addEventListener('click', closeArrizoGallery);
 
