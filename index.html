@@ -2065,6 +2065,29 @@ document.addEventListener('keydown', e => {
     startArrizoAutoplay();
   }
 });
+  let arrizoTouchStartX = 0;
+let arrizoTouchEndX = 0;
+
+arrizoGallery.addEventListener('touchstart', e => {
+  arrizoTouchStartX = e.changedTouches[0].screenX;
+}, { passive:true });
+
+arrizoGallery.addEventListener('touchend', e => {
+  arrizoTouchEndX = e.changedTouches[0].screenX;
+
+  const swipeDistance = arrizoTouchEndX - arrizoTouchStartX;
+
+  if(Math.abs(swipeDistance) < 50) return;
+
+  if(swipeDistance < 0){
+    nextArrizoSlide();
+  } else {
+    prevArrizoSlide();
+  }
+
+  startArrizoAutoplay();
+}, { passive:true });
+  
 </script>
 
 </body>
