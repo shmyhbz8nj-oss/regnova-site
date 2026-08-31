@@ -1591,10 +1591,14 @@ localStorage.getItem('regnova-language') || 'sr'
 const bookingModal = document.getElementById('bookingModal');
 const bookingClose = document.getElementById('bookingClose');
 const bookingOverlay = document.getElementById('bookingOverlay');
-
+const bookingForm = document.querySelector('.booking-form');
+const bookingSuccess = document.getElementById('bookingSuccess');
+const successClose = document.getElementById('successClose');
 document.querySelectorAll('.book').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
+    bookingSuccess.classList.remove('active');
+bookingForm.style.display = '';
     bookingModal.classList.add('active');
     document.body.classList.add('modal-open');
   });
@@ -1612,6 +1616,45 @@ document.addEventListener('keydown', e => {
   if(e.key === 'Escape'){
     closeBookingModal();
   }
+});
+  bookingForm.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const submitButton = bookingForm.querySelector('.booking-submit');
+  const originalText = submitButton.textContent;
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'Šaljem...';
+
+  try {
+    const response = await fetch(bookingForm.action, {
+      method: 'POST',
+      body: new FormData(bookingForm),
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if(response.ok){
+      bookingForm.style.display = 'none';
+      bookingSuccess.classList.add('active');
+      bookingForm.reset();
+    } else {
+      alert('Došlo je do greške prilikom slanja zahteva. Molimo Vas pokušajte ponovo.');
+    }
+
+  } catch(error){
+    alert('Došlo je do greške prilikom slanja zahteva. Molimo Vas pokušajte ponovo.');
+  }
+
+  submitButton.disabled = false;
+  submitButton.textContent = originalText;
+});
+
+successClose.addEventListener('click', () => {
+  bookingSuccess.classList.remove('active');
+  bookingForm.style.display = '';
+  closeBookingModal();
 });
 </script>
 
