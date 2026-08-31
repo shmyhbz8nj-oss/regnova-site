@@ -1958,7 +1958,110 @@ window.addEventListener('load', () => {
     });
   }, 50);
   });
-  
+  const arrizoCard = document.getElementById('arrizoCard');
+const arrizoGallery = document.getElementById('arrizoGallery');
+const arrizoGalleryOverlay = document.getElementById('arrizoGalleryOverlay');
+const arrizoGalleryClose = document.getElementById('arrizoGalleryClose');
+const arrizoPrev = document.getElementById('arrizoPrev');
+const arrizoNext = document.getElementById('arrizoNext');
+
+const arrizoSlides = arrizoGallery.querySelectorAll('.car-gallery-img');
+const arrizoDots = arrizoGallery.querySelectorAll('.gallery-dot');
+
+let arrizoIndex = 0;
+let arrizoInterval;
+
+function showArrizoSlide(index){
+  arrizoSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+
+  arrizoDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+
+  arrizoIndex = index;
+}
+
+function nextArrizoSlide(){
+  let nextIndex = arrizoIndex + 1;
+  if(nextIndex >= arrizoSlides.length){
+    nextIndex = 0;
+  }
+  showArrizoSlide(nextIndex);
+}
+
+function prevArrizoSlide(){
+  let prevIndex = arrizoIndex - 1;
+  if(prevIndex < 0){
+    prevIndex = arrizoSlides.length - 1;
+  }
+  showArrizoSlide(prevIndex);
+}
+
+function startArrizoAutoplay(){
+  stopArrizoAutoplay();
+  arrizoInterval = setInterval(nextArrizoSlide, 4000);
+}
+
+function stopArrizoAutoplay(){
+  clearInterval(arrizoInterval);
+}
+
+function openArrizoGallery(){
+  arrizoGallery.classList.add('active');
+  document.body.classList.add('modal-open');
+  showArrizoSlide(0);
+  startArrizoAutoplay();
+}
+
+function closeArrizoGallery(){
+  arrizoGallery.classList.remove('active');
+  document.body.classList.remove('modal-open');
+  stopArrizoAutoplay();
+}
+
+arrizoCard.addEventListener('click', openArrizoGallery);
+arrizoGalleryOverlay.addEventListener('click', closeArrizoGallery);
+arrizoGalleryClose.addEventListener('click', closeArrizoGallery);
+
+arrizoPrev.addEventListener('click', e => {
+  e.stopPropagation();
+  prevArrizoSlide();
+  startArrizoAutoplay();
+});
+
+arrizoNext.addEventListener('click', e => {
+  e.stopPropagation();
+  nextArrizoSlide();
+  startArrizoAutoplay();
+});
+
+arrizoDots.forEach((dot, index) => {
+  dot.addEventListener('click', e => {
+    e.stopPropagation();
+    showArrizoSlide(index);
+    startArrizoAutoplay();
+  });
+});
+
+document.addEventListener('keydown', e => {
+  if(!arrizoGallery.classList.contains('active')) return;
+
+  if(e.key === 'Escape'){
+    closeArrizoGallery();
+  }
+
+  if(e.key === 'ArrowRight'){
+    nextArrizoSlide();
+    startArrizoAutoplay();
+  }
+
+  if(e.key === 'ArrowLeft'){
+    prevArrizoSlide();
+    startArrizoAutoplay();
+  }
+});
 </script>
 
 </body>
