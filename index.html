@@ -1038,7 +1038,115 @@ Executive, aerodromski, hotelski i privatni transferi, kao i premium najam vozil
 </div>
 
 </section>
+<!-- REGNOVA BOOKING MODAL -->
+<div class="booking-modal" id="bookingModal">
 
+  <div class="booking-overlay" id="bookingOverlay"></div>
+
+  <div class="booking-box">
+
+    <button class="booking-close" id="bookingClose" type="button">
+      ×
+    </button>
+
+    <div class="booking-heading">
+      <div class="eyebrow" data-i18n="booking_label">
+        Rezervacija
+      </div>
+
+      <h2 data-i18n="booking_title">
+        Rezervišite REGNOVA iskustvo
+      </h2>
+
+      <p data-i18n="booking_intro">
+        Pošaljite detalje Vašeg putovanja. Naš tim će Vam potvrditi dostupnost i sve detalje rezervacije.
+      </p>
+    </div>
+
+    <form
+      class="booking-form"
+      action="https://formspree.io/f/xnpqjeyd"
+      method="POST"
+    >
+
+      <div class="form-grid">
+
+        <div class="form-field">
+          <label data-i18n="form_name">Vaše ime i prezime</label>
+          <input type="text" name="Ime i prezime" required>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="form_email">Vaš email</label>
+          <input type="email" name="Email" required>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="form_phone">Vaš telefon / WhatsApp</label>
+          <input type="tel" name="Telefon">
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="form_service">Izaberite vrstu usluge</label>
+          <select name="Vrsta usluge" required>
+            <option value="">—</option>
+            <option value="Izvršni prevoz">Izvršni prevoz</option>
+            <option value="Aerodromski transfer">Aerodromski transfer</option>
+            <option value="Hotelski transfer">Hotelski transfer</option>
+            <option value="Privatni vozač">Privatni vozač</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="form_date">Datum putovanja</label>
+          <input type="date" name="Datum" required>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="form_time">Vreme</label>
+          <input type="time" name="Vreme" required>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="form_pickup">Mesto preuzimanja</label>
+          <input type="text" name="Mesto preuzimanja" required>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="form_destination">Destinacija</label>
+          <input type="text" name="Destinacija" required>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="form_passengers">Broj putnika</label>
+          <input type="number" name="Broj putnika" min="1" required>
+        </div>
+
+        <div class="form-field">
+          <label data-i18n="form_flight">Broj leta</label>
+          <input type="text" name="Broj leta">
+        </div>
+
+        <div class="form-field form-full">
+          <label data-i18n="form_notes">Posebni zahtevi / napomena</label>
+          <textarea name="Napomena" rows="4"></textarea>
+        </div>
+
+      </div>
+
+      <button class="booking-submit" type="submit" data-i18n="form_submit">
+        Pošalji zahtev
+      </button>
+
+      <p class="booking-disclaimer" data-i18n="booking_disclaimer">
+        Slanje upita ne predstavlja automatsku potvrdu rezervacije. Rezervacija je potvrđena nakon naše povratne potvrde.
+      </p>
+
+    </form>
+
+  </div>
+
+</div>
 </main>
 
 <footer class="footer">
