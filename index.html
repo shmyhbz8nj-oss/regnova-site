@@ -1509,7 +1509,31 @@ new Date().getFullYear();
 setLang(
 localStorage.getItem('regnova-language') || 'sr'
 );
+const bookingModal = document.getElementById('bookingModal');
+const bookingClose = document.getElementById('bookingClose');
+const bookingOverlay = document.getElementById('bookingOverlay');
 
+document.querySelectorAll('.book').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    bookingModal.classList.add('active');
+    document.body.classList.add('modal-open');
+  });
+});
+
+function closeBookingModal(){
+  bookingModal.classList.remove('active');
+  document.body.classList.remove('modal-open');
+}
+
+bookingClose.addEventListener('click', closeBookingModal);
+bookingOverlay.addEventListener('click', closeBookingModal);
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    closeBookingModal();
+  }
+});
 </script>
 
 </body>
