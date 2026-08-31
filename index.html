@@ -599,7 +599,26 @@ a{
   color:#8f8a81;
   font-size:.78rem;
 }
+.booking-success{
+  display:none;
+  text-align:center;
+  padding:20px 4px 4px;
+}
 
+.booking-success.active{
+  display:block;
+}
+
+.booking-success h2{
+  font:600 clamp(2.4rem,4vw,3.8rem) 'Cormorant Garamond',serif;
+  margin:8px 0 10px;
+}
+
+.booking-success p{
+  color:var(--muted);
+  max-width:620px;
+  margin:0 auto 18px;
+}
 body.modal-open{
   overflow:hidden;
 }
