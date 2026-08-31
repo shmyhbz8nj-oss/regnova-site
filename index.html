@@ -1261,27 +1261,30 @@ Executive, aerodromski, hotelski i privatni transferi, kao i premium najam vozil
           </select>
         </div>
 
-        <div class="form-field">
-    <input
-  type="text"
-  id="bookingTime"
-  name="Vreme"
-  placeholder="HH:MM"
-  maxlength="5"
-  inputmode="numeric"
-  required
->
-        </div>
-
-        <div class="form-field">
-          <label data-i18n="form_time">Vreme</label>
-          <input
-  type="text"
-  name="Vreme"
-  placeholder="HH:MM"
-  pattern="([01][0-9]|2[0-3]):[0-5][0-9]"
-  required
->
+  <div class="form-field">
+  <label data-i18n="form_date">Datum putovanja</label>
+  <input
+    type="text"
+    id="bookingDate"
+    name="Datum"
+    placeholder="DD.MM.GGGG"
+    maxlength="10"
+    inputmode="numeric"
+    required
+  >
+</div>
+    <div class="form-field">
+  <label data-i18n="form_time">Vreme</label>
+  <input
+    type="text"
+    id="bookingTime"
+    name="Vreme"
+    placeholder="HH:MM"
+    maxlength="5"
+    inputmode="numeric"
+    required
+  >
+</div>
         </div>
 
         <div class="form-field">
