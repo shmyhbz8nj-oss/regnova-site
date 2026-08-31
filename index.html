@@ -1262,8 +1262,15 @@ Executive, aerodromski, hotelski i privatni transferi, kao i premium najam vozil
         </div>
 
         <div class="form-field">
-          <label data-i18n="form_date">Datum putovanja</label>
-          <input type="text" name="Datum" placeholder="DD.MM.GGGG" pattern="\d{2}\.\d{2}\.\d{4}" required>
+    <input
+  type="text"
+  id="bookingTime"
+  name="Vreme"
+  placeholder="HH:MM"
+  maxlength="5"
+  inputmode="numeric"
+  required
+>
         </div>
 
         <div class="form-field">
@@ -1655,6 +1662,30 @@ successClose.addEventListener('click', () => {
   bookingSuccess.classList.remove('active');
   bookingForm.style.display = '';
   closeBookingModal();
+});
+  const bookingDate = document.getElementById('bookingDate');
+const bookingTime = document.getElementById('bookingTime');
+
+bookingDate.addEventListener('input', e => {
+  let value = e.target.value.replace(/\D/g, '').slice(0, 8);
+
+  if(value.length > 4){
+    value = value.slice(0, 2) + '.' + value.slice(2, 4) + '.' + value.slice(4);
+  } else if(value.length > 2){
+    value = value.slice(0, 2) + '.' + value.slice(2);
+  }
+
+  e.target.value = value;
+});
+
+bookingTime.addEventListener('input', e => {
+  let value = e.target.value.replace(/\D/g, '').slice(0, 4);
+
+  if(value.length > 2){
+    value = value.slice(0, 2) + ':' + value.slice(2);
+  }
+
+  e.target.value = value;
 });
 </script>
 
