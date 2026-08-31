@@ -467,7 +467,142 @@ a{
   color:#777;
   font-size:.84rem;
 }
+.booking-modal{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
 
+.booking-modal.active{
+  display:flex;
+}
+
+.booking-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(2,3,5,.82);
+  backdrop-filter:blur(8px);
+}
+
+.booking-box{
+  position:relative;
+  z-index:2;
+  width:min(920px,100%);
+  max-height:92vh;
+  overflow-y:auto;
+  background:
+    radial-gradient(circle at top,rgba(202,155,73,.08),transparent 35%),
+    #0b0e12;
+  border:1px solid rgba(202,161,85,.38);
+  border-radius:10px;
+  padding:36px;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+}
+
+.booking-close{
+  position:absolute;
+  top:16px;
+  right:18px;
+  border:0;
+  background:none;
+  color:var(--gold2);
+  font-size:30px;
+  cursor:pointer;
+}
+
+.booking-heading{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 28px;
+}
+
+.booking-heading h2{
+  font:600 clamp(2.3rem,4vw,3.8rem) 'Cormorant Garamond',serif;
+  margin:8px 0 10px;
+}
+
+.booking-heading p{
+  color:var(--muted);
+  margin:0;
+}
+
+.booking-form{
+  margin-top:18px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.form-field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.form-full{
+  grid-column:1 / -1;
+}
+
+.form-field label{
+  color:var(--gold2);
+  font-size:.78rem;
+  letter-spacing:.05em;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea{
+  width:100%;
+  border:1px solid rgba(202,161,85,.28);
+  background:#0f1318;
+  color:var(--text);
+  padding:13px 14px;
+  border-radius:6px;
+  font:inherit;
+  outline:none;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+  border-color:var(--gold2);
+  box-shadow:0 0 0 2px rgba(229,189,114,.08);
+}
+
+.form-field textarea{
+  resize:vertical;
+}
+
+.booking-submit{
+  width:100%;
+  margin-top:22px;
+  padding:15px 22px;
+  border:1px solid #d6a34f;
+  border-radius:6px;
+  background:linear-gradient(135deg,#e0b267,#9b6822);
+  color:white;
+  font-weight:700;
+  letter-spacing:.04em;
+  cursor:pointer;
+}
+
+.booking-disclaimer{
+  margin:14px 0 0;
+  text-align:center;
+  color:#8f8a81;
+  font-size:.78rem;
+}
+
+body.modal-open{
+  overflow:hidden;
+}
 @media(max-width:1200px){
   .services{
     grid-template-columns:repeat(3,1fr);
