@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REGNOVA | Premium Chauffeur Service</title>
+<meta name="description" content="Regnova premium chauffeur servis za poslovne, aerodromske i hotelske transfere sa fokusom na komfor, pouzdanost i sigurnost.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#08090b;
+  --panel:#111318;
+  --text:#f4efe6;
+  --muted:#aaa497;
+  --gold:#caa95d;
+  --gold2:#e3c88a;
+  --line:rgba(255,255,255,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 90% 0,rgba(202,169,93,.12),transparent 22%),
+    #08090b;
+  color:var(--text);
+  font-family:Inter,sans-serif;
+  line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1500px;margin:auto}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 5vw;
+  background:rgba(8,9,11,.84);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.mark{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(202,169,93,.35);
+  color:var(--gold2);
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  font-weight:700;
+}
+.word{
+  letter-spacing:.3em;
+  font-weight:700;
+  font-size:.93rem;
+}
+.nav{
+  display:flex;
+  gap:26px;
+  font-size:.9rem;
+}
+.actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.lang{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:7px 10px;
+}
+.lang button{
+  border:0;
+  background:none;
+  color:#777;
+  font-weight:700;
+  cursor:pointer;
+}
+.lang button.active{
+  color:var(--gold2);
+}
+.cta,.btn{
+  border-radius:999px;
+  padding:12px 20px;
+  font-weight:700;
+}
+.cta{
+  border:1px solid rgba(202,169,93,.38);
+  color:var(--gold2);
+}
+
+.hero{
+  min-height:78vh;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:48px;
+  align-items:center;
+  padding:86px 5vw 60px;
+}
+.eyebrow{
+  color:var(--gold2);
+  font-size:.73rem;
+  letter-spacing:.23em;
+  font-weight:700;
+  margin:0 0 16px;
+}
+h1,h2{
+  font-family:'Cormorant Garamond',serif;
+  line-height:1.02;
+  margin:0;
+  font-weight:600;
+}
+h1{font-size:clamp(3.4rem,7vw,7rem)}
+h2{font-size:clamp(2.3rem,4.6vw,4.6rem)}
+h3{margin:10px 0}
+
+.lead,.muted,.card p,.experience p{
+  color:var(--muted);
+}
+.lead{
+  font-size:1.08rem;
+  max-width:680px;
+  margin:25px 0 32px;
+}
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.primary{
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  color:#111;
+}
+.secondary{
+  border:1px solid var(--line);
+}
+.pills{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:32px;
+}
+.pills span{
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:9px 13px;
+  color:#d9d2c3;
+  font-size:.82rem;
+}
+
+.visual,.card,.quote,.contactbox{
+  border:1px solid var(--line);
+  border-radius:26px;
+  background:linear-gradient(180deg,rgba(19,22,27,.96),rgba(12,14,18,.96));
+  box-shadow:0 24px 70px rgba(0,0,0,.32);
+}
+.visual{padding:22px}
+.placeholder{
+  height:420px;
+  border-radius:20px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:30px;
+  background:
+    radial-gradient(circle at 20% 10%,rgba(202,169,93,.14),transparent 30%),
+    linear-gradient(135deg,#11151a,#1b2027 50%,#0d1014);
+  border:1px solid var(--line);
+}
+.placeholder strong{
+  display:block;
+  color:var(--gold2);
+  letter-spacing:.16em;
+  font-size:.82rem;
+}
+.placeholder span{
+  display:block;
+  color:#b6afa2;
+  margin-top:8px;
+  max-width:420px;
+}
+.standard{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  padding:20px 4px 2px;
+}
+.standard small{
+  display:block;
+  color:var(--gold2);
+  letter-spacing:.17em;
+}
+.standard strong{font-size:1.12rem}
+
+.section{padding:80px 5vw}
+.intro{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+}
+.card{padding:30px}
+.stats div{
+  padding:22px 4px;
+  border-bottom:1px solid var(--line);
+}
+.stats div:last-child{border-bottom:0}
+.stats strong{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold2);
+  font-size:2rem;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:34px;
+}
+.service{min-height:220px}
+.num,.tag{
+  color:var(--gold2);
+  font-size:.76rem;
+  letter-spacing:.16em;
+  font-weight:700;
+}
+
+.fleet{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:34px;
+}
+.vehicle{
+  overflow:hidden;
+  padding:0;
+}
+.vehicle .placeholder{
+  height:280px;
+  border-radius:24px 24px 0 0;
+  border-width:0 0 1px;
+}
+.vehiclecopy{padding:28px}
+.vehicle ul{
+  padding-left:18px;
+  color:#d3ccbf;
+}
+
+.experience{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:34px;
+}
+.experience article{
+  border-top:1px solid rgba(202,169,93,.3);
+  padding-top:20px;
+}
+.experience strong{color:var(--gold2)}
+
+.quote{
+  padding:60px 30px;
+  text-align:center;
+  background:
+    radial-gradient(circle,rgba(202,169,93,.1),transparent 38%),
+    #101318;
+}
+.quote p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4.5vw,4.4rem);
+  line-height:1.1;
+  margin:0 0 12px;
+}
+.quote span{
+  color:var(--gold2);
+  letter-spacing:.3em;
+}
+
+.contact{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:30px;
+  align-items:center;
+}
+.contactbox{padding:28px}
+.contactbox div{
+  padding:16px 0;
+  border-bottom:1px solid var(--line);
+}
+.contactbox div:last-child{border-bottom:0}
+.contactbox span{
+  display:block;
+  color:var(--gold2);
+  font-size:.75rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.footer{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:30px 5vw;
+  border-top:1px solid var(--line);
+  color:#85827d;
+  font-size:.86rem;
+}
+
+@media(max-width:1050px){
+  .hero,.intro,.fleet,.contact{
+    grid-template-columns:1fr;
+  }
+  .services,.experience{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .nav{display:none}
+}
+
+@media(max-width:700px){
+  .header{padding:16px 5vw}
+  .cta{display:none}
+  .hero{padding-top:56px}
+  .services,.experience{
+    grid-template-columns:1fr;
+  }
+  .placeholder{height:300px}
+  .footer{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header class="header">
+
+<a class="brand" href="#top">
+<span class="mark">R</span>
+<span class="word">REGNOVA</span>
+</a>
+
+<nav class="nav">
+<a href="#services" data-i18n="nav_services">Usluge</a>
+<a href="#fleet" data-i18n="nav_fleet">Flota</a>
+<a href="#experience" data-i18n="nav_exp">Iskustvo</a>
+<a href="#contact" data-i18n="nav_contact">Kontakt</a>
+</nav>
+
+<div class="actions">
+
+<div class="lang">
+<button class="active" data-lang="sr">SR</button>
+<span>|</span>
+<button data-lang="en">EN</button>
+</div>
+
+<a class="cta" href="#contact" data-i18n="book">Rezerviši vožnju</a>
+
+</div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+
+<div>
+<p class="eyebrow">PREMIUM CHAUFFEUR SERVICE · SERBIA</p>
+
+<h1 data-i18n="hero_title">
+Luksuzno putovanje, uz vrhunsku uslugu.
+</h1>
+
+<p class="lead" data-i18n="hero_text">
+Regnova pruža executive, aerodromske i hotelske transfere za klijente koji očekuju komfor, pouzdanost, sigurnost i prefinjeno iskustvo od početka do kraja putovanja.
+</p>
+
+<div class="buttons">
+<a class="btn primary" href="#contact" data-i18n="request">Pošalji upit</a>
+<a class="btn secondary" href="#fleet" data-i18n="see_fleet">Pogledaj flotu</a>
+</div>
+
+<div class="pills">
+<span data-i18n="p1">Executive transferi</span>
+<span data-i18n="p2">Aerodrom & hoteli</span>
+<span data-i18n="p3">Komfort • Pouzdanost • Sigurnost</span>
+<span data-i18n="p4">Premium PHEV flota</span>
+</div>
+
+</div>
+
+<div class="visual">
+
+<div class="placeholder">
+<div>
+<strong data-i18n="hero_ph">MESTO ZA GLAVNU FOTOGRAFIJU</strong>
+<span data-i18n="hero_ph2">
+Ovde kasnije dodajemo profesionalnu fotografiju Arrizo 8 PHEV ili zajedničku Regnova fotografiju.
+</span>
+</div>
+</div>
+
+<div class="standard">
+
+<div>
+<small>REGNOVA STANDARD</small>
+<strong data-i18n="standard">Komfortno. Pouzdano. Sigurno.</strong>
+</div>
+
+<span class="muted" data-i18n="chauffeur">
+Premium iskustvo sa profesionalnim vozačem
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section intro">
+
+<div class="card">
+<p class="eyebrow" data-i18n="why">ZAŠTO REGNOVA</p>
+
+<h2 data-i18n="intro_title">
+Nije samo transfer. To je kompletno iskustvo.
+</h2>
+
+<p data-i18n="intro_text">
+Regnova je zasnovana na ideji da premium prevoz treba da bude miran, elegantan i dosledan.
+Svaki detalj je važan — od tačnosti i izgleda vozila do načina vožnje, profesionalnosti i udobnosti klijenta.
+</p>
+</div>
+
+
+<div class="card stats">
+
+<div>
+<strong>01</strong>
+<span data-i18n="st1">Premium chauffeur pozicioniranje</span>
+</div>
+
+<div>
+<strong>02</strong>
+<span data-i18n="st2">Fokus na kompanije, hotele i aerodrome</span>
+</div>
+
+<div>
+<strong>03</strong>
+<span data-i18n="st3">Usluga dizajnirana za stalne klijente</span>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="services">
+
+<p class="eyebrow" data-i18n="services">USLUGE</p>
+
+<h2 data-i18n="services_title">
+Prevoz prilagođen zahtevnim klijentima.
+</h2>
+
+<p class="muted" data-i18n="services_text">
+Premium usluga treba da bude jednostavna i prirodna.
+Regnova se fokusira na ono što je zaista važno:
+tačan dolazak, uredno vozilo, mirnu vožnju i osećaj sigurnosti tokom celog puta.
+</p>
+
+
+<div class="services">
+
+<article class="card service">
+<span class="num">01</span>
+<h3 data-i18n="s1">Executive transferi</h3>
+<p data-i18n="s1t">
+Pouzdan prevoz za sastanke, poslovne goste, službena putovanja i dnevne obaveze.
+</p>
+</article>
+
+
+<article class="card service">
+<span class="num">02</span>
+<h3 data-i18n="s2">Aerodromski transferi</h3>
+<p data-i18n="s2t">
+Udoban prevoz od vrata do vrata uz premium iskustvo dolaska i odlaska.
+</p>
+</article>
+
+
+<article class="card service">
+<span class="num">03</span>
+<h3 data-i18n="s3">Hotelski transferi</h3>
+<p data-i18n="s3t">
+Elegantna usluga za goste hotela kojima su važni kvalitet, pouzdanost i profesionalan prvi utisak.
+</p>
+</article>
+
+
+<article class="card service">
+<span class="num">04</span>
+<h3 data-i18n="s4">Privatni vozač</h3>
+<p data-i18n="s4t">
+Fleksibilna chauffeur usluga za klijente koji žele udobnost, pouzdanost i kontinuitet.
+</p>
+</article>
+
+</div>
+
+</section>
+
+
+<section class="section" id="fleet">
+
+<p class="eyebrow" data-i18n="fleet_label">FLOTA</p>
+
+<h2 data-i18n="fleet_title">
+Moderna premium flota sa prepoznatljivim nastupom.
+</h2>
+
+
+<div class="fleet">
+
+<article class="card vehicle">
+
+<div class="placeholder">
+<div>
+<strong data-i18n="vehicle_ph">
+MESTO ZA FOTOGRAFIJU VOZILA
+</strong>
+<span>Arrizo 8 PHEV · Technology Gray</span>
+</div>
+</div>
+
+<div class="vehiclecopy">
+
+<span class="tag">PREMIUM SEDAN</span>
+
+<h3>Chery Arrizo 8 PHEV</h3>
+
+<p class="muted">Technology Gray</p>
+
+<ul>
+<li data-i18n="a1">Elegantan executive sedan</li>
+<li data-i18n="a2">Prefinjena i tiha vožnja</li>
+<li data-i18n="a3">Idealan za poslovne i aerodromske transfere</li>
+</ul>
+
+</div>
+
+</article>
+
+
+<article class="card vehicle">
+
+<div class="placeholder">
+<div>
+<strong data-i18n="vehicle_ph">
+MESTO ZA FOTOGRAFIJU VOZILA
+</strong>
+<span>Tiggo 9 PHEV · Matte Gray</span>
+</div>
+</div>
+
+<div class="vehiclecopy">
+
+<span class="tag">LUXURY SUV</span>
+
+<h3>Chery Tiggo 9 PHEV</h3>
+
+<p class="muted">Matte Gray</p>
+
+<ul>
+<li data-i18n="t1">Premium SUV sa snažnim prisustvom</li>
+<li data-i18n="t2">Prostrana kabina i dovoljno mesta za prtljag</li>
+<li data-i18n="t3">Odličan izbor za VIP i duže transfere</li>
+</ul>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+
+<section class="section" id="experience">
+
+<p class="eyebrow" data-i18n="exp_label">
+REGNOVA ISKUSTVO
+</p>
+
+<h2 data-i18n="exp_title">
+Luksuz se prepoznaje po tome kako se osećate tokom puta.
+</h2>
+
+
+<div class="experience">
+
+<article>
+<strong>01</strong>
+<h3 data-i18n="e1">Tačnost</h3>
+<p data-i18n="e1t">
+Precizan dolazak i dobro planiranje kako bi putovanje proteklo bez stresa.
+</p>
+</article>
+
+
+<article>
+<strong>02</strong>
+<h3 data-i18n="e2">Profesionalnost</h3>
+<p data-i18n="e2t">
+Profesionalan pristup i visok standard usluge tokom svakog putovanja.
+</p>
+</article>
+
+
+<article>
+<strong>03</strong>
+<h3 data-i18n="e3">Sigurnost</h3>
+<p data-i18n="e3t">
+Smirena i sigurna vožnja uz stalni fokus na udobnost putnika.
+</p>
+</article>
+
+
+<article>
+<strong>04</strong>
+<h3 data-i18n="e4">Prezentacija</h3>
+<p data-i18n="e4t">
+Uredno vozilo, profesionalna usluga i premium utisak od prvog trenutka.
+</p>
+</article>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="quote">
+
+<p data-i18n="quote">
+„Premium transfer nikada ne bi trebalo da deluje obično.“
+</p>
+
+<span>REGNOVA</span>
+
+</div>
+
+</section>
+
+
+<section class="section contact" id="contact">
+
+<div>
+
+<p class="eyebrow" data-i18n="contact_label">
+KONTAKT
+</p>
+
+<h2 data-i18n="contact_title">
+Za rezervacije, poslovnu saradnju i premium zahteve.
+</h2>
+
+<p class="muted" data-i18n="contact_text">
+Kontakt podatke možemo ubaciti čim potvrdiš telefon, email i WhatsApp.
+</p>
+
+</div>
+
+
+<div class="contactbox">
+
+<div>
+<span>Instagram</span>
+<a href="https://instagram.com/regnova.rs" target="_blank">
+@regnova.rs
+</a>
+</div>
+
+
+<div>
+<span>Email</span>
+<a href="mailto:booking@regnova.rs">
+booking@regnova.rs
+</a>
+</div>
+
+
+<div>
+<span data-i18n="phone">
+Telefon
+</span>
+<a href="#">
++381 XX XXX XXXX
+</a>
+</div>
+
+
+<div>
+<span data-i18n="availability">
+Dostupnost
+</span>
+<p data-i18n="availability_t">
+Executive, aerodromski i hotelski transferi · Srbija
+</p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+<div class="brand">
+<span class="mark">R</span>
+<span class="word">REGNOVA</span>
+</div>
+
+<p>
+Premium Chauffeur Service
+</p>
+
+<p>
+© <span id="year"></span> Regnova.
+<span data-i18n="rights">
+Sva prava zadržana.
+</span>
+</p>
+
+</footer>
+
+</div>
+
+
+<script>
+
+const tr = {
+
+sr: {
+
+nav_services:'Usluge',
+nav_fleet:'Flota',
+nav_exp:'Iskustvo',
+nav_contact:'Kontakt',
+
+book:'Rezerviši vožnju',
+
+hero_title:'Luksuzno putovanje, uz vrhunsku uslugu.',
+
+hero_text:'Regnova pruža executive, aerodromske i hotelske transfere za klijente koji očekuju komfor, pouzdanost, sigurnost i prefinjeno iskustvo od početka do kraja putovanja.',
+
+request:'Pošalji upit',
+see_fleet:'Pogledaj flotu',
+
+p1:'Executive transferi',
+p2:'Aerodrom & hoteli',
+p3:'Komfort • Pouzdanost • Sigurnost',
+p4:'Premium PHEV flota',
+
+hero_ph:'MESTO ZA GLAVNU FOTOGRAFIJU',
+
+hero_ph2:'Ovde kasnije dodajemo profesionalnu fotografiju Arrizo 8 PHEV ili zajedničku Regnova fotografiju.',
+
+standard:'Komfortno. Pouzdano. Sigurno.',
+
+chauffeur:'Premium iskustvo sa profesionalnim vozačem',
+
+why:'ZAŠTO REGNOVA',
+
+intro_title:'Nije samo transfer. To je kompletno iskustvo.',
+
+intro_text:'Regnova je zasnovana na ideji da premium prevoz treba da bude miran, elegantan i dosledan. Svaki detalj je važan — od tačnosti i izgleda vozila do načina vožnje, profesionalnosti i udobnosti klijenta.',
+
+st1:'Premium chauffeur pozicioniranje',
+st2:'Fokus na kompanije, hotele i aerodrome',
+st3:'Usluga dizajnirana za stalne klijente',
+
+services:'USLUGE',
+
+services_title:'Prevoz prilagođen zahtevnim klijentima.',
+
+services_text:'Premium usluga treba da bude jednostavna i prirodna. Regnova se fokusira na ono što je zaista važno: tačan dolazak, uredno vozilo, mirnu vožnju i osećaj sigurnosti tokom celog puta.',
+
+s1:'Executive transferi',
+
+s1t:'Pouzdan prevoz za sastanke, poslovne goste, službena putovanja i dnevne obaveze.',
+
+s2:'Aerodromski transferi',
+
+s2t:'Udoban prevoz od vrata do vrata uz premium iskustvo dolaska i odlaska.',
+
+s3:'Hotelski transferi',
+
+s3t:'Elegantna usluga za goste hotela kojima su važni kvalitet, pouzdanost i profesionalan prvi utisak.',
+
+s4:'Privatni vozač',
+
+s4t:'Fleksibilna chauffeur usluga za klijente koji žele udobnost, pouzdanost i kontinuitet.',
+
+fleet_label:'FLOTA',
+
+fleet_title:'Moderna premium flota sa prepoznatljivim nastupom.',
+
+vehicle_ph:'MESTO ZA FOTOGRAFIJU VOZILA',
+
+a1:'Elegantan executive sedan',
+a2:'Prefinjena i tiha vožnja',
+a3:'Idealan za poslovne i aerodromske transfere',
+
+t1:'Premium SUV sa snažnim prisustvom',
+t2:'Prostrana kabina i dovoljno mesta za prtljag',
+t3:'Odličan izbor za VIP i duže transfere',
+
+exp_label:'REGNOVA ISKUSTVO',
+
+exp_title:'Luksuz se prepoznaje po tome kako se osećate tokom puta.',
+
+e1:'Tačnost',
+
+e1t:'Precizan dolazak i dobro planiranje kako bi putovanje proteklo bez stresa.',
+
+e2:'Profesionalnost',
+
+e2t:'Profesionalan pristup i visok standard usluge tokom svakog putovanja.',
+
+e3:'Sigurnost',
+
+e3t:'Smirena i sigurna vožnja uz stalni fokus na udobnost putnika.',
+
+e4:'Prezentacija',
+
+e4t:'Uredno vozilo, profesionalna usluga i premium utisak od prvog trenutka.',
+
+quote:'„Premium transfer nikada ne bi trebalo da deluje obično.“',
+
+contact_label:'KONTAKT',
+
+contact_title:'Za rezervacije, poslovnu saradnju i premium zahteve.',
+
+contact_text:'Kontakt podatke možemo ubaciti čim potvrdiš telefon, email i WhatsApp.',
+
+phone:'Telefon',
+
+availability:'Dostupnost',
+
+availability_t:'Executive, aerodromski i hotelski transferi · Srbija',
+
+rights:'Sva prava zadržana.'
+
+},
+
+
+en: {
+
+nav_services:'Services',
+nav_fleet:'Fleet',
+nav_exp:'Experience',
+nav_contact:'Contact',
+
+book:'Book a Ride',
+
+hero_title:'Luxury travel, delivered with confidence.',
+
+hero_text:'Regnova offers executive, airport and hotel transfers for clients who value comfort, reliability, safety and a refined experience from the beginning to the end of every journey.',
+
+request:'Request Booking',
+see_fleet:'Explore Fleet',
+
+p1:'Executive Transfers',
+p2:'Airport & Hotels',
+p3:'Comfort • Reliability • Safety',
+p4:'Premium PHEV Fleet',
+
+hero_ph:'HERO VEHICLE PHOTO PLACEHOLDER',
+
+hero_ph2:'A professional Arrizo 8 PHEV or combined Regnova brand image can be added here later.',
+
+standard:'Comfortable. Reliable. Safe.',
+
+chauffeur:'Premium chauffeur-driven experience',
+
+why:'WHY REGNOVA',
+
+intro_title:'Not just a transfer. A complete client experience.',
+
+intro_text:'Regnova is built around the idea that premium transportation should feel calm, elegant and consistent. Every detail matters — from punctuality and vehicle presentation to driving style, professionalism and passenger comfort.',
+
+st1:'Premium chauffeur positioning',
+st2:'Focused on companies, hotels & airports',
+st3:'Designed for repeat clients',
+
+services:'SERVICES',
+
+services_title:'Tailored transportation for demanding clients.',
+
+services_text:'Premium service should feel effortless. Regnova focuses on what truly matters: punctual arrival, immaculate presentation, a smooth ride and confidence throughout the journey.',
+
+s1:'Executive Transfers',
+
+s1t:'Reliable transportation for meetings, corporate guests, business travel and daily executive movement.',
+
+s2:'Airport Transfers',
+
+s2t:'Comfortable door-to-door travel with a premium arrival and departure experience.',
+
+s3:'Hotel Transfers',
+
+s3t:'Elegant transportation for hotel guests who value quality, reliability and a professional first impression.',
+
+s4:'Private Chauffeur',
+
+s4t:'A flexible chauffeur-driven service for clients who want comfort, reliability and continuity.',
+
+fleet_label:'FLEET',
+
+fleet_title:'A modern premium fleet with distinctive presence.',
+
+vehicle_ph:'VEHICLE IMAGE PLACEHOLDER',
+
+a1:'Elegant executive sedan',
+a2:'Refined and quiet ride',
+a3:'Ideal for business and airport transfers',
+
+t1:'Premium SUV with strong presence',
+t2:'Spacious cabin and generous luggage capacity',
+t3:'Excellent for VIP and longer transfers',
+
+exp_label:'THE REGNOVA EXPERIENCE',
+
+exp_title:'Luxury is defined by how the journey feels.',
+
+e1:'Punctuality',
+
+e1t:'Precise arrivals and careful planning for a stress-free journey.',
+
+e2:'Professionalism',
+
+e2t:'A professional approach and consistently high service standard throughout every journey.',
+
+e3:'Safety',
+
+e3t:'Confident and composed driving with passenger comfort always in focus.',
+
+e4:'Presentation',
+
+e4t:'Immaculate vehicles, professional service and a premium impression from the first moment.',
+
+quote:'“A premium transfer should never feel ordinary.”',
+
+contact_label:'CONTACT',
+
+contact_title:'For bookings, corporate partnerships and premium requests.',
+
+contact_text:'Contact details can be added as soon as the phone number, email and WhatsApp are confirmed.',
+
+phone:'Phone',
+
+availability:'Availability',
+
+availability_t:'Executive, airport and hotel transfers · Serbia',
+
+rights:'All rights reserved.'
+
+}
+
+};
+
+
+function setLang(lang){
+
+document.documentElement.lang = lang;
+
+document.querySelectorAll('[data-i18n]').forEach(el => {
+
+const key = el.dataset.i18n;
+
+if(tr[lang][key]){
+el.textContent = tr[lang][key];
+}
+
+});
+
+document.querySelectorAll('[data-lang]').forEach(btn => {
+
+btn.classList.toggle(
+'active',
+btn.dataset.lang === lang
+);
+
+});
+
+localStorage.setItem(
+'regnova-language',
+lang
+);
+
+}
+
+
+document.querySelectorAll('[data-lang]').forEach(btn => {
+
+btn.onclick = () => setLang(btn.dataset.lang);
+
+});
+
+
+document.getElementById('year').textContent =
+new Date().getFullYear();
+
+
+setLang(
+localStorage.getItem('regnova-language') || 'sr'
+);
+
+</script>
+
+</body>
+</html>
