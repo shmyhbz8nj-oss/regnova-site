@@ -811,9 +811,15 @@ body.modal-open{
   width:100%;
   height:100%;
   object-fit:cover;
-  display:none;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .45s ease;
 }
 
+.car-gallery-img.active{
+  opacity:1;
+  pointer-events:auto;
+}
 .car-gallery-img.active{
   display:block;
 }
