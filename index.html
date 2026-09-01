@@ -2194,6 +2194,7 @@ let tiggoIndex = 0;
 let tiggoInterval;
 
 function showTiggoSlide(index){
+  function showTiggoSlide(index){
   tiggoSlides.forEach((slide, i) => {
     slide.classList.toggle('active', i === index);
   });
@@ -2201,23 +2202,7 @@ function showTiggoSlide(index){
   tiggoDots.forEach((dot, i) => {
     dot.classList.toggle('active', i === index);
   });
-document.addEventListener('keydown', e => {
-  
-tiggoGallery.addEventListener('touchend', e => {
-  tiggoTouchEndX = e.changedTouches[0].screenX;
 
-  const swipeDistance = tiggoTouchEndX - tiggoTouchStartX;
-
-  if(Math.abs(swipeDistance) < 50) return;
-
-  if(swipeDistance < 0){
-    nextTiggoSlide();
-  } else {
-    prevTiggoSlide();
-  }
-
-  startTiggoAutoplay();
-}, { passive:true });
   tiggoIndex = index;
 }
 
