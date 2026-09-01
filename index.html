@@ -1599,8 +1599,8 @@ Poslovni, aerodromski, hotelski i privatni transferi · Srbija
         <div class="form-field">
           <label data-i18n="form_service">Izaberite vrstu usluge</label>
 <select name="Vrsta usluge" required data-i18n-options="service_options">
-  <option value="">—</option>            <option value="Poslovni prevoz">Poslovni prevoz</option>
-            <option value="Aerodromski transfer">Aerodromski transfer</option>
+<option value="">—</option>
+<option value="Poslovni prevoz">Poslovni prevoz</option>            <option value="Aerodromski transfer">Aerodromski transfer</option>
             <option value="Hotelski transfer">Hotelski transfer</option>
             <option value="Privatni vozač">Privatni vozač</option>
           </select>
@@ -1747,6 +1747,7 @@ form_flight:'Broj leta',
 form_notes:'Posebni zahtevi / napomena',
 form_submit:'Pošalji zahtev',
   form_sending:'Šaljem...',
+  form_error:'Došlo je do greške prilikom slanja zahteva. Molimo Vas pokušajte ponovo.',
   service_options:[
   '—',
   'Poslovni prevoz',
@@ -1855,6 +1856,7 @@ form_flight:'Flight number',
 form_notes:'Special requests / notes',
 form_submit:'Send request',
   form_sending:'Sending...',
+  form_error:'There was an error while sending your request. Please try again.',
   service_options:[
   '—',
   'Business transport',
@@ -2044,12 +2046,10 @@ submitButton.textContent = t[document.documentElement.lang].form_sending;
       bookingSuccess.classList.add('active');
       bookingForm.reset();
     } else {
-      alert('Došlo je do greške prilikom slanja zahteva. Molimo Vas pokušajte ponovo.');
-    }
+alert(t[document.documentElement.lang].form_error);    }
 
   } catch(error){
-    alert('Došlo je do greške prilikom slanja zahteva. Molimo Vas pokušajte ponovo.');
-  }
+alert(t[document.documentElement.lang].form_error);  }
 
   submitButton.disabled = false;
   submitButton.textContent = originalText;
