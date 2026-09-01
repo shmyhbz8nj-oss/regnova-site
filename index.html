@@ -1746,6 +1746,7 @@ form_passengers:'Broj putnika',
 form_flight:'Broj leta',
 form_notes:'Posebni zahtevi / napomena',
 form_submit:'Pošalji zahtev',
+  form_sending:'Šaljem...',
   service_options:[
   '—',
   'Poslovni prevoz',
@@ -1853,6 +1854,7 @@ form_passengers:'Number of passengers',
 form_flight:'Flight number',
 form_notes:'Special requests / notes',
 form_submit:'Send request',
+  form_sending:'Sending...',
   service_options:[
   '—',
   'Business transport',
@@ -1935,10 +1937,15 @@ rights:'All rights reserved.'
 
 function setLang(l){
 
-document.documentElement.lang = l;
-
 document.querySelectorAll('[data-i18n]').forEach(e => {
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+  let k = e.dataset.i18n;
+
+  if(t[l][k]){
+    e.textContent = t[l][k];
+  }
+});
+
+document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
   const key = el.dataset.i18nPlaceholder;
 
   if(t[l][key]){
@@ -1946,13 +1953,6 @@ document.querySelectorAll('[data-i18n]').forEach(e => {
   }
 });
 
-let k = e.dataset.i18n;
-
-if(t[l][k]){
-e.textContent = t[l][k];
-}
-
-});
 document.querySelectorAll('[data-i18n-options]').forEach(select => {
   const key = select.dataset.i18nOptions;
   const labels = t[l][key];
@@ -2029,8 +2029,7 @@ document.addEventListener('keydown', e => {
   const originalText = submitButton.textContent;
 
   submitButton.disabled = true;
-  submitButton.textContent = 'Šaljem...';
-
+submitButton.textContent = t[document.documentElement.lang].form_sending;
   try {
     const response = await fetch(bookingForm.action, {
       method: 'POST',
