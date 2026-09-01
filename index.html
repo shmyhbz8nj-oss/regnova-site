@@ -1935,7 +1935,18 @@ e.textContent = t[l][k];
 }
 
 });
+document.querySelectorAll('[data-i18n-options]').forEach(select => {
+  const key = select.dataset.i18nOptions;
+  const labels = t[l][key];
 
+  if(!labels) return;
+
+  select.querySelectorAll('option').forEach((option, index) => {
+    if(labels[index] !== undefined){
+      option.textContent = labels[index];
+    }
+  });
+});
 document.querySelectorAll('[data-lang]').forEach(b => {
 
 b.classList.toggle(
