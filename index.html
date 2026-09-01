@@ -363,17 +363,7 @@ a{
   font-size:1.8rem;
   margin:3px 0;
 }
-.fleet .vehicle{
-  transform:scale(.975);
-  transition:
-    transform 1.1s cubic-bezier(.22,1,.36,1),
-    box-shadow 1.1s ease;
-}
 
-.fleet.visible .vehicle{
-  transform:scale(1);
-  box-shadow:0 24px 70px rgba(0,0,0,.38);
-}
 .experience{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -1307,8 +1297,8 @@ Vrhunska vozila za vrhunsko iskustvo putovanja.
 
 </div>
 
-<div class="fleet reveal">
-<article class="card vehicle arrizo-card" id="arrizoCard">
+<div class="fleet">
+  <article class="card vehicle arrizo-card" id="arrizoCard">
 
   <div class="vehicle-copy">
    <span data-i18n="arrizo_label">PREMIJUM SEDAN</span>
