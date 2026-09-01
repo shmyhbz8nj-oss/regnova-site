@@ -1999,7 +1999,7 @@ const bookingOverlay = document.getElementById('bookingOverlay');
 const bookingForm = document.querySelector('.booking-form');
 const bookingSuccess = document.getElementById('bookingSuccess');
 const successClose = document.getElementById('successClose');
-document.querySelectorAll('.book').forEach(btn => {
+document.querySelectorAll('.book, .book-trigger').forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault();
     bookingSuccess.classList.remove('active');
