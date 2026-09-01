@@ -1608,29 +1608,22 @@ Poslovni, aerodromski, hotelski i privatni transferi · Srbija
 
   <div class="form-field">
   <label data-i18n="form_date">Datum putovanja</label>
-  <input
-    type="text"
-    id="bookingDate"
-    name="Datum"
-      placeholder="DD.MM.GGGG"
-  data-i18n-placeholder="date_placeholder"
-    maxlength="10"
-    inputmode="numeric"
-    required
-  >
+ <input
+  type="date"
+  id="bookingDate"
+  name="Datum"
+  required
+>
 </div>
     <div class="form-field">
   <label data-i18n="form_time">Vreme</label>
-  <input
-  type="text"
+ <input
+  type="time"
   id="bookingTime"
   name="Vreme"
-  placeholder="HH:MM"
-  data-i18n-placeholder="time_placeholder"
-    maxlength="5"
-    inputmode="numeric"
-    required
-  >
+  step="60"
+  required
+>
 </div>
 
         <div class="form-field">
@@ -1748,6 +1741,7 @@ form_notes:'Posebni zahtevi / napomena',
 form_submit:'Pošalji zahtev',
   form_sending:'Šaljem...',
   form_error:'Došlo je do greške prilikom slanja zahteva. Molimo Vas pokušajte ponovo.',
+  datetime_error:'Datum i vreme moraju biti u budućnosti.',
   service_options:[
   '—',
   'Poslovni prevoz',
@@ -1857,6 +1851,7 @@ form_notes:'Special requests / notes',
 form_submit:'Send request',
   form_sending:'Sending...',
   form_error:'There was an error while sending your request. Please try again.',
+  datetime_error:'The date and time must be in the future.',
   service_options:[
   '—',
   'Business transport',
@@ -2026,6 +2021,18 @@ document.addEventListener('keydown', e => {
 });
   bookingForm.addEventListener('submit', async e => {
   e.preventDefault();
+    const selectedDate = bookingDate.value;
+const selectedTime = bookingTime.value;
+
+if(!selectedDate || !selectedTime){
+  return;
+}
+
+const selectedDateTime = new Date(`${selectedDate}T${selectedTime}`);
+
+if(selectedDateTime < new Date()){
+alert(t[document.documentElement.lang].datetime_error);  return;
+}
 
   const submitButton = bookingForm.querySelector('.booking-submit');
   const originalText = submitButton.textContent;
@@ -2062,18 +2069,29 @@ successClose.addEventListener('click', () => {
 });
   const bookingDate = document.getElementById('bookingDate');
 const bookingTime = document.getElementById('bookingTime');
+  const today = new Date();
+const yyyy = today.getFullYear();
+const mm = String(today.getMonth() + 1).padStart(2, '0');
+const dd = String(today.getDate()).padStart(2, '0');
 
-bookingDate.addEventListener('input', e => {
-  let value = e.target.value.replace(/\D/g, '').slice(0, 8);
+bookingDate.min = `${yyyy}-${mm}-${dd}`;
+  function updateMinTime(){
+  const todayValue = `${yyyy}-${mm}-${dd}`;
 
-  if(value.length > 4){
-    value = value.slice(0, 2) + '.' + value.slice(2, 4) + '.' + value.slice(4);
-  } else if(value.length > 2){
-    value = value.slice(0, 2) + '.' + value.slice(2);
+  if(bookingDate.value === todayValue){
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    bookingTime.min = `${hours}:${minutes}`;
+  } else {
+    bookingTime.removeAttribute('min');
   }
+}
 
-  e.target.value = value;
-});
+bookingDate.addEventListener('change', updateMinTime);
+  bookingTime.addEventListener('focus', updateMinTime);
+
 
 bookingTime.addEventListener('input', e => {
   let value = e.target.value.replace(/\D/g, '').slice(0, 4);
