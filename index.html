@@ -2182,7 +2182,100 @@ arrizoGallery.addEventListener('touchend', e => {
 
   startArrizoAutoplay();
 }, { passive:true });
-  
+  const tiggoCard = document.getElementById('tiggoCard');
+const tiggoGallery = document.getElementById('tiggoGallery');
+const tiggoGalleryOverlay = document.getElementById('tiggoGalleryOverlay');
+const tiggoGalleryClose = document.getElementById('tiggoGalleryClose');
+const tiggoPrev = document.getElementById('tiggoPrev');
+const tiggoNext = document.getElementById('tiggoNext');
+
+const tiggoSlides = tiggoGallery.querySelectorAll('.car-gallery-img');
+const tiggoDots = tiggoGallery.querySelectorAll('.gallery-dot');
+
+let tiggoIndex = 0;
+let tiggoInterval;
+
+function showTiggoSlide(index){
+  tiggoSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+
+  tiggoDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+
+  tiggoIndex = index;
+}
+
+function nextTiggoSlide(){
+  let nextIndex = tiggoIndex + 1;
+
+  if(nextIndex >= tiggoSlides.length){
+    nextIndex = 0;
+  }
+
+  showTiggoSlide(nextIndex);
+}
+
+function prevTiggoSlide(){
+  let prevIndex = tiggoIndex - 1;
+
+  if(prevIndex < 0){
+    prevIndex = tiggoSlides.length - 1;
+  }
+
+  showTiggoSlide(prevIndex);
+}
+
+function startTiggoAutoplay(){
+  stopTiggoAutoplay();
+  tiggoInterval = setInterval(nextTiggoSlide, 4000);
+}
+
+function stopTiggoAutoplay(){
+  clearInterval(tiggoInterval);
+}
+
+function openTiggoGallery(){
+  tiggoGallery.classList.add('active');
+  document.body.classList.add('modal-open');
+  showTiggoSlide(0);
+  startTiggoAutoplay();
+}
+
+function closeTiggoGallery(){
+  tiggoGallery.classList.remove('active');
+  document.body.classList.remove('modal-open');
+  stopTiggoAutoplay();
+}
+
+tiggoCard.addEventListener('click', e => {
+  if(e.target.closest('.car-gallery')) return;
+  openTiggoGallery();
+});
+
+tiggoGalleryOverlay.addEventListener('click', closeTiggoGallery);
+tiggoGalleryClose.addEventListener('click', closeTiggoGallery);
+
+tiggoPrev.addEventListener('click', e => {
+  e.stopPropagation();
+  prevTiggoSlide();
+  startTiggoAutoplay();
+});
+
+tiggoNext.addEventListener('click', e => {
+  e.stopPropagation();
+  nextTiggoSlide();
+  startTiggoAutoplay();
+});
+
+tiggoDots.forEach((dot, index) => {
+  dot.addEventListener('click', e => {
+    e.stopPropagation();
+    showTiggoSlide(index);
+    startTiggoAutoplay();
+  });
+});
 </script>
 
 </body>
