@@ -2106,6 +2106,26 @@ const bookingModal = document.getElementById('bookingModal');
 const bookingClose = document.getElementById('bookingClose');
 const bookingOverlay = document.getElementById('bookingOverlay');
 const bookingForm = document.querySelector('.booking-form');
+  const paymentNote = document.getElementById('paymentNote');
+
+paymentNote.style.display = 'none';
+
+document.querySelectorAll('input[name="Način plaćanja"]').forEach(option => {
+  option.addEventListener('change', () => {
+    paymentNote.style.display =
+      option.value === 'Kartica' && option.checked ? 'block' : 'none';
+  });
+});
+  const paymentNote = document.getElementById('paymentNote');
+
+document.querySelectorAll('input[name="Način plaćanja"]').forEach(option => {
+  option.addEventListener('change', () => {
+    paymentNote.style.display =
+      option.value === 'Kartica' && option.checked ? 'block' : 'none';
+  });
+});
+
+paymentNote.style.display = 'none';
 const bookingSuccess = document.getElementById('bookingSuccess');
 const successClose = document.getElementById('successClose');
 document.querySelectorAll('.book, .book-trigger').forEach(btn => {
