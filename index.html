@@ -2093,15 +2093,6 @@ bookingDate.addEventListener('change', updateMinTime);
   bookingTime.addEventListener('focus', updateMinTime);
 
 
-bookingTime.addEventListener('input', e => {
-  let value = e.target.value.replace(/\D/g, '').slice(0, 4);
-
-  if(value.length > 2){
-    value = value.slice(0, 2) + ':' + value.slice(2);
-  }
-
-  e.target.value = value;
-});
   window.history.scrollRestoration = 'manual';
 
 window.addEventListener('load', () => {
