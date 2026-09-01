@@ -868,6 +868,19 @@ body.modal-open{
   background:var(--gold2);
   box-shadow:0 0 12px rgba(229,189,114,.55);
 }
+  .reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.22,1,.36,1);
+  will-change:opacity,transform;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
 @media(max-width:1200px){
   .services{
     grid-template-columns:repeat(3,1fr);
@@ -1150,10 +1163,8 @@ data-i18n="fleetbtn"
 
 </section>
 
-<section class="section" id="services">
-
-<div class="section-title">
-
+<section class="section reveal" id="services">
+<div class="section-title reveal">
 <div class="eyebrow" data-i18n="services_label">
 Premijum usluge, prilagođene vama
 </div>
@@ -1284,8 +1295,7 @@ Vrhunska vozila za vrhunsko iskustvo putovanja.
 
 </div>
 
-<div class="fleet">
-
+<div class="fleet reveal">
 <article class="card vehicle arrizo-card" id="arrizoCard">
 
   <div class="vehicle-copy">
@@ -1456,8 +1466,7 @@ Detalji prave razliku
 
 </div>
 
-<div class="experience">
-
+<div class="experience reveal">
 <article>
 
 <strong>
@@ -1526,8 +1535,7 @@ Premijum vozila i prijatno iskustvo od vrata do vrata.
 
 </section>
 
-<div class="quote">
-
+<div class="quote reveal">
 <p data-i18n="quote">
 „Premijum transfer nikada ne bi trebalo da deluje obično.“
 </p>
@@ -1538,8 +1546,7 @@ REGNOVA
 
 </div>
 
-<section class="section contact" id="contact">
-
+<section class="section contact reveal" id="contact">
 <div>
 
 <div class="eyebrow" data-i18n="contact_label">
@@ -2492,6 +2499,21 @@ tiggoGallery.addEventListener('touchend', e => {
 
   startTiggoAutoplay();
 }, { passive:true });
+  const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    } else {
+      entry.target.classList.remove('visible');
+    }
+  });
+}, {
+  threshold:0.15
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
