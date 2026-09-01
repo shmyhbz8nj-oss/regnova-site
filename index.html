@@ -2118,6 +2118,16 @@ document.querySelectorAll('input[name="Način plaćanja"]').forEach(option => {
 });
   const paymentNote = document.getElementById('paymentNote');
 
+paymentNote.style.display = 'none';
+
+document.querySelectorAll('input[name="Način plaćanja"]').forEach(option => {
+  option.addEventListener('change', () => {
+    paymentNote.style.display =
+      option.value === 'Kartica' && option.checked ? 'block' : 'none';
+  });
+});
+  const paymentNote = document.getElementById('paymentNote');
+
 document.querySelectorAll('input[name="Način plaćanja"]').forEach(option => {
   option.addEventListener('change', () => {
     paymentNote.style.display =
