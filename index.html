@@ -1065,8 +1065,8 @@ Komforno. Pouzdano. Sigurno.
 <div class="buttons">
 
 <a
-class="btn primary"
-href="mailto:dusanvbt@gmail.com?subject=REGNOVA%20-%20Upit%20za%20rezervaciju"
+class="btn primary book-trigger"
+href="#contact"
 data-i18n="request"
 >
 ✉ Pošalji upit
@@ -1622,10 +1622,11 @@ Poslovni, aerodromski, hotelski i privatni transferi · Srbija
     <div class="form-field">
   <label data-i18n="form_time">Vreme</label>
   <input
-    type="text"
-    id="bookingTime"
-    name="Vreme"
-    placeholder="HH:MM"
+  type="text"
+  id="bookingTime"
+  name="Vreme"
+  placeholder="HH:MM"
+  data-i18n-placeholder="time_placeholder"
     maxlength="5"
     inputmode="numeric"
     required
@@ -1738,6 +1739,7 @@ form_service:'Izaberite vrstu usluge',
 form_date:'Datum putovanja',
   date_placeholder:'DD.MM.GGGG',
 form_time:'Vreme',
+  time_placeholder:'HH:MM',
 form_pickup:'Mesto preuzimanja',
 form_destination:'Destinacija',
 form_passengers:'Broj putnika',
@@ -1760,8 +1762,7 @@ booking_disclaimer:'Slanje upita ne predstavlja automatsku potvrdu rezervacije. 
 eyebrow:'Vaš put. Naš prioritet.',
 
 hero_title_1:'Luksuzno putovanje',
-hero_title_2:'uz vrhunsku uslugu',
-
+hero_title_2:'uz vrhunsku uslugu.',
 promise:'Komforno. Pouzdano. Sigurno.',
 
 request:'✉ Pošalji upit',
@@ -1845,6 +1846,7 @@ form_service:'Select a service',
 form_date:'Travel date',
   date_placeholder:'DD.MM.YYYY',
 form_time:'Time',
+  time_placeholder:'HH:MM',
 form_pickup:'Pickup location',
 form_destination:'Destination',
 form_passengers:'Number of passengers',
@@ -1867,8 +1869,7 @@ booking_disclaimer:'Submitting a request does not automatically confirm the rese
 eyebrow:'Your journey. Our priority.',
 
 hero_title_1:'Luxury travel',
-hero_title_2:'delivered with confidence',
-
+hero_title_2:'delivered with confidence.',
 promise:'Comfortable. Reliable. Safe.',
 
 request:'✉ Send inquiry',
@@ -1937,6 +1938,13 @@ function setLang(l){
 document.documentElement.lang = l;
 
 document.querySelectorAll('[data-i18n]').forEach(e => {
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+  const key = el.dataset.i18nPlaceholder;
+
+  if(t[l][key]){
+    el.placeholder = t[l][key];
+  }
+});
 
 let k = e.dataset.i18n;
 
