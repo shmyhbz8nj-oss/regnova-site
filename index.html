@@ -2202,30 +2202,7 @@ function showTiggoSlide(index){
     dot.classList.toggle('active', i === index);
   });
 document.addEventListener('keydown', e => {
-  if(!tiggoGallery.classList.contains('active')) return;
-
-  if(e.key === 'Escape'){
-    closeTiggoGallery();
-  }
-
-  if(e.key === 'ArrowRight'){
-    nextTiggoSlide();
-    startTiggoAutoplay();
-  }
-
-  if(e.key === 'ArrowLeft'){
-    prevTiggoSlide();
-    startTiggoAutoplay();
-  }
-});
-
-let tiggoTouchStartX = 0;
-let tiggoTouchEndX = 0;
-
-tiggoGallery.addEventListener('touchstart', e => {
-  tiggoTouchStartX = e.changedTouches[0].screenX;
-}, { passive:true });
-
+  
 tiggoGallery.addEventListener('touchend', e => {
   tiggoTouchEndX = e.changedTouches[0].screenX;
 
@@ -2313,6 +2290,46 @@ tiggoDots.forEach((dot, index) => {
     startTiggoAutoplay();
   });
 });
+  document.addEventListener('keydown', e => {
+  if(!tiggoGallery.classList.contains('active')) return;
+
+  if(e.key === 'Escape'){
+    closeTiggoGallery();
+  }
+
+  if(e.key === 'ArrowRight'){
+    nextTiggoSlide();
+    startTiggoAutoplay();
+  }
+
+  if(e.key === 'ArrowLeft'){
+    prevTiggoSlide();
+    startTiggoAutoplay();
+  }
+});
+
+let tiggoTouchStartX = 0;
+let tiggoTouchEndX = 0;
+
+tiggoGallery.addEventListener('touchstart', e => {
+  tiggoTouchStartX = e.changedTouches[0].screenX;
+}, { passive:true });
+
+tiggoGallery.addEventListener('touchend', e => {
+  tiggoTouchEndX = e.changedTouches[0].screenX;
+
+  const swipeDistance = tiggoTouchEndX - tiggoTouchStartX;
+
+  if(Math.abs(swipeDistance) < 50) return;
+
+  if(swipeDistance < 0){
+    nextTiggoSlide();
+  } else {
+    prevTiggoSlide();
+  }
+
+  startTiggoAutoplay();
+}, { passive:true });
 </script>
 
 </body>
