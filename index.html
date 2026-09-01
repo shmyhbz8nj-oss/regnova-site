@@ -1598,8 +1598,8 @@ Poslovni, aerodromski, hotelski i privatni transferi · Srbija
 
         <div class="form-field">
           <label data-i18n="form_service">Izaberite vrstu usluge</label>
-<select name="Vrsta usluge" required data-i18n-options="service_options">            <option value="">—</option>
-            <option value="Poslovni prevoz">Poslovni prevoz</option>
+<select name="Vrsta usluge" required data-i18n-options="service_options">
+  <option value="">—</option>            <option value="Poslovni prevoz">Poslovni prevoz</option>
             <option value="Aerodromski transfer">Aerodromski transfer</option>
             <option value="Hotelski transfer">Hotelski transfer</option>
             <option value="Privatni vozač">Privatni vozač</option>
@@ -1612,7 +1612,8 @@ Poslovni, aerodromski, hotelski i privatni transferi · Srbija
     type="text"
     id="bookingDate"
     name="Datum"
-    placeholder="DD.MM.GGGG"
+      placeholder="DD.MM.GGGG"
+  data-i18n-placeholder="date_placeholder"
     maxlength="10"
     inputmode="numeric"
     required
@@ -1735,6 +1736,7 @@ form_email:'Vaš email',
 form_phone:'Vaš telefon / WhatsApp',
 form_service:'Izaberite vrstu usluge',
 form_date:'Datum putovanja',
+  date_placeholder:'DD.MM.GGGG',
 form_time:'Vreme',
 form_pickup:'Mesto preuzimanja',
 form_destination:'Destinacija',
@@ -1787,8 +1789,8 @@ fleet_sub:'Vrhunska vozila za vrhunsko iskustvo putovanja.',
   arrizo_label:'PREMIJUM SEDAN',
 arrizo_text:'Technology Gray · Elegantna premijum limuzina za poslovne, aerodromske i privatne transfere.',
   arrizo_gallery:'Technology Gray · Premijum sedan',
-tiggo_label:'LUXURY SUV',
-tiggo_text:'Matte Gray · Prostran premijum SUV za viši nivo komfora, prostora i luksuza.',
+tiggo_label:'LUKSUZNI SUV',
+  tiggo_text:'Matte Gray · Prostran premijum SUV za viši nivo komfora, prostora i luksuza.',
   tiggo_gallery:'Matte Gray · Luksuzni SUV sa 7 sedišta',
 exp_label:'Regnova iskustvo',
 exp_title:'Detalji prave razliku.',
@@ -1841,6 +1843,7 @@ form_email:'Your email',
 form_phone:'Your phone / WhatsApp',
 form_service:'Select a service',
 form_date:'Travel date',
+  date_placeholder:'DD.MM.YYYY',
 form_time:'Time',
 form_pickup:'Pickup location',
 form_destination:'Destination',
